@@ -1,14 +1,21 @@
-console.log('hello metronome');
-
 let btn = document.getElementById('play-btn');
 let tempoInput = document.getElementById('tempo');
+let noteLengthSelect = document.getElementById('note-length');
 
 let tempo = tempoInput.value;
 let ratio = tempo / 60;
 
+const noteLengthsRatios = {
+    'quarter': tempo / 60,
+    'eight': tempo / 60 * 2,
+    'qrt-tuple': tempo / 60 / 2 * 3,
+    'eight-tuple': tempo / 60 * 3,
+}
+
 let interval;
 
 btn.addEventListener('click', toggleMetronome);
+noteLengthSelect.addEventListener('change', setNoteLengthRatio);
 
 function toggleMetronome(e) {
     console.log(e.target.id);
@@ -41,4 +48,11 @@ function getChangeTempo(e) {
     clearInterval(interval);
     interval = null;
     interval = setInterval(playSound, setTempo());
+}
+function setNoteLengthRatio(e) {
+    tempo = tempoInput.value;
+    ratio = noteLengthsRatios[e.target.selectedOptions[0].value];
+    clearInterval(interval);
+    interval = null;
+    console.log(ratio);
 }
