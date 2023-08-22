@@ -9,11 +9,11 @@ let ratio = tempo / 60;
 let interval;
 
 btn.addEventListener('click', toggleMetronome);
-tempoInput.addEventListener('change', changeTempo);
 
 function toggleMetronome(e) {
     console.log(e.target.id);
     if (e.target.id === 'play-btn') {
+        tempoInput.addEventListener('change', changeTempo);
         interval = setInterval(playSound, setTempo());
         playSound();
         e.target.id = 'stop-btn';
