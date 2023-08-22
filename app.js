@@ -13,16 +13,17 @@ btn.addEventListener('click', toggleMetronome);
 function toggleMetronome(e) {
     console.log(e.target.id);
     if (e.target.id === 'play-btn') {
-        interval = setInterval(playSound, setTempo());
-        playSound();
         e.target.id = 'stop-btn';
         e.target.textContent = 'stop';
+        interval = setInterval(playSound, setTempo());
+        playSound();
         tempoInput.addEventListener('change', getChangeTempo);
     } else if(e.target.id === 'stop-btn') {
         clearInterval(interval)
         interval = null;
         e.target.id = 'play-btn';
         e.target.textContent = 'play';
+        tempoInput.removeEventListener('change', getChangeTempo);
     }
 }
 
