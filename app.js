@@ -13,11 +13,11 @@ btn.addEventListener('click', toggleMetronome);
 function toggleMetronome(e) {
     console.log(e.target.id);
     if (e.target.id === 'play-btn') {
-        tempoInput.addEventListener('change', changeTempo);
         interval = setInterval(playSound, setTempo());
         playSound();
         e.target.id = 'stop-btn';
         e.target.textContent = 'stop';
+        tempoInput.addEventListener('change', getChangeTempo);
     } else if(e.target.id === 'stop-btn') {
         clearInterval(interval)
         interval = null;
@@ -31,14 +31,10 @@ function playSound() {
     const audio = new Audio('clave-sound.mp3');
     audio.play();
 }
-function getTempo(e) {
-    tempo = e.target.value;
-    ratio = tempo/60;
-}
 function setTempo() {
     return 1000 / ratio;
 }
-function changeTempo(e) {
+function getChangeTempo(e) {
     tempo = e.target.value;
     ratio = tempo/60;
     clearInterval(interval);
