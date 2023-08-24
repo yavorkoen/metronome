@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles.css">
     <title>Document</title>
 </head>
+
 <body>
-    <h1>Yavor's metronome</h1>
-    <select name="note-length" id="note-length">
-        <option value="quarter" selected>quarter</option>
-        <option value="eight">eight</option>
-        <option value="qrt-tuple">qrt-tuple</option>
-        <option value="eight-tuple">eight-tuple</option>
-    </select>
-    <button id="play-btn">play</button>
-    <label for="tempo">
-        Tempo
-        <!-- <input type="number" value="120" name="tempo" id="tempo"> -->
-        <input type="range" min="40" max="340" step="1" value="120" class="slider" id="tempo">
-    </label>
-    <script src="/app.js" type="module"></script>
+    <div class="container">
+        <div class="metronome">
+            <div class="bpm-display">
+                <span class="tempo">120</span>
+                <span class="bpm">BPM</span>
+            </div>
+            <div class="tempo-text">nice and steady</div>
+            <div class="tempo-settings">
+                <div class="adjust-tempo decrease-tempo">-</div>
+                <input class="tempo-slider" type="range" min="40" max="340" value="120" step="1">
+                <div class="adjust-tempo increase-tempo">+</div>
+            </div>
+            <div class="start-stop-btn">START</div>
+            <div class="measures">
+                <div class="adjust-beats decrease-beats">-</div>
+                <div class="measure-count">4</div>
+                <div class="adjust-beats increase-beats">-</div>
+                <div class="measures-text">beats per measure</div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js" type="module"></script>
 </body>
+
 </html>

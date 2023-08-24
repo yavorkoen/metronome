@@ -1,6 +1,6 @@
-import Timer from "./timer";
+// import Timer from "./timer";
 
-
+console.log('hi');
 let btn = document.getElementById('play-btn');
 let tempoInput = document.getElementById('tempo');
 let noteLengthSelect = document.getElementById('note-length');
@@ -34,6 +34,7 @@ noteLengthSelect.addEventListener('change', setNoteLengthRatio);
 
 function toggleMetronome(e) {
     if (e.target.id === 'play-btn') {
+        console.log('play');
         e.target.id = 'stop-btn';
         e.target.textContent = 'stop';
         playSound();
@@ -85,6 +86,7 @@ function getChangeTempo(e) {
     interval = null;
     interval = setInterval(playSoundLoop, setTempo());
 }
+
 function setNoteLengthRatio(e) {
     ratio = tempo / 60 * noteLengthsRatios[e.target.selectedOptions[0].value];
     beats = noteLengthsBeats[e.target.selectedOptions[0].value]
