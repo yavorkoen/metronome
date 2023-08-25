@@ -11,6 +11,7 @@
 <body>
     <div class="container">
         <div class="metronome">
+            <input class="tempo-slider" type="range" min="40" max="340" value="120" step="1">
             <div class="bpm-display">
                 <span class="tempo">120</span>
                 <span class="bpm">BPM</span>
@@ -18,7 +19,6 @@
             <div class="tempo-text">nice and steady</div>
             <div class="tempo-settings">
                 <div class="adjust-tempo decrease-tempo">-</div>
-                <input class="tempo-slider" type="range" min="40" max="340" value="120" step="1">
                 <div class="adjust-tempo increase-tempo">+</div>
             </div>
             <div class="start-stop-btn">START</div>
@@ -28,8 +28,18 @@
                 <div class="adjust-beats increase-beats">+</div>
             </div>
             <div class="measures-text">beats per measure</div>
+            <!-- <div class="note-length-settings">
+                <select name="note-length" id="note-length" class="note-length">
+                    <option value="quarter">quarter</option>
+                    <option value="eight">eight</option>
+                    <option value="qrt-tuple">qrt-tuple</option>
+                    <option value="eight-tuple">eight-tuple</option>
+                    <option value="16th-note">16th note</option>
+                </select>
+            </div> -->
         </div>
     </div>
+    <div class="metronome-border"></div>
     <script src="/app.js" type="module"></script>
 </body>
 

@@ -6,17 +6,61 @@ body {
     position: absolute;
     left: 50%;
     transform: translate(-50%);
-    margin-top: 5rem;
-    
+    margin-top: 15rem;
+    z-index: 1;
 }
+
 .metronome {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 400px;
 }
+
+.metronome-border {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 5rem;
+    border-bottom: 500px solid #555;
+    border-left: 110px solid transparent;
+    border-right: 110px solid transparent;
+    height: 0;
+    width: 150px;
+    z-index: 0;
+}
+
 .tempo-settings {
     display: flex;
 }
+
 .measures {
     display: flex;
+}
+
+ .tempo-slider {
+    position: absolute;
+    right: 50px;
+    width: 300px;
+    transform: rotate(90deg);
+    transform-origin: right;
+   
+    /* all: unset; */
+}
+/* .tempo-slider::-webkit-slider-thumb{
+    -webkit-appearance: none;
+}  */
+.tempo-slider.active {
+    --duration: 60000 / 120;
+    --angleLeft: 0;
+    --angleRight: 0;
+    animation-name: pendulum ;
+    animation-duration: calc(var(--duration) * 1ms);
+    animation-timing-function:  ease-in-out;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+@keyframes pendulum {
+    from{transform: rotate(calc(var(--angleLeft) * 1deg))}
+    to {transform: rotate(calc(var(--angleRight) * 1deg))}
 }

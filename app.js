@@ -9,6 +9,7 @@ const startStopBtn = document.querySelector('.start-stop-btn');
 const decreaseBeats = document.querySelector('.decrease-beats');
 const increaseBeats = document.querySelector('.increase-beats');
 const measureCount = document.querySelector('.measure-count');
+const noteLength = document.querySelector('.note-length');
 
 let bpm = 120;
 let beatsPerMeasure = 4;
@@ -24,6 +25,7 @@ startStopBtn.addEventListener('click', (e) => {
         metronome.stop();
         isRunning = false;
         e.target.textContent = "START";
+        count = 0;
     }
 })
 
@@ -43,7 +45,7 @@ increaseTempoBtn.addEventListener('click', () => {
 
 tempoSlider.addEventListener('input', (e) => {
     validateTempo();
-    bpm = e.target.value
+    bpm = e.target.value;
     updateMetronome();
 });
 
@@ -59,10 +61,22 @@ increaseBeats.addEventListener('click', () => {
     count=0;
 });
 
+// noteLength.addEventListener('change', () => {
+//     let noteLengthsRatios = {
+//         'quarter': 1,
+//         'eight': 2,
+//         'qrt-tuple': 1.5,
+//         'eight-tuple': 3,
+//         '16th-note': 4
+//     }
+//     metronome.timeInterval = 60000 / bpm / noteLengthsRatios[noteLength.value];
+// })
+
 function updateMetronome() {
     tempo.textContent = bpm;
     tempoSlider.value = bpm;
     metronome.timeInterval = 60000 / bpm;
+    setRotationAngles(tempoSlider, (bpm - 40) * 0.29, 180 - ((bpm - 40) * 0.29), 60000 / bpm);
 }
 
 function validateTempo() {
@@ -83,10 +97,16 @@ function playClick() {
         clave2.play();
         clave2.currentTime = 0;
     }
-    count++;   
+    count++; 
+    setRotation(tempoSlider, (bpm - 40) * 0.29, 180 - ((bpm - 40) * 0.29), 60000 / bpm);
+}
+function setRotation(element, angleLeft, angleRight, duration){
+    element.style.setProperty('--angleLeft', angleLeft);
+    element.style.setProperty('--angleRight', angleRight);
+    element.style.setProperty('--duration', duration);
 }
 
-const metronome = new Timer(playClick, 60000 / bpm, {immediate: true});
+const metronome = new Timer(playClick, 60000 / bpm, {immediate: true, el: tempoSlider});
 
 
 

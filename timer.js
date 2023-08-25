@@ -10,12 +10,14 @@ function Timer(callback, timeInterval, options) {
         }
 
         this.timeout = setTimeout(this.round, this.timeInterval);
+        options.el.className = "tempo-slider active";
         console.log('Started!');
     }
     //stop timer
     this.stop = () => {
 
         clearTimeout(this.timeout);
+        options.el.className = "tempo-slider";
         console.log('Stopped!');
 
     }
