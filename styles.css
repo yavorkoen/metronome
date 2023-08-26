@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
 body {
     position: relative;
     background-color: rgb(192, 225, 255);
+    font-family: 'Comfortaa', 'sans-serif';
 }
 
 .container {
@@ -69,7 +72,7 @@ body {
     background-color: rgb(83, 83, 83);;
     border-radius: 50%;
     position: absolute;
-    bottom: 45%;
+    bottom: 46%;
     
 }
 
@@ -96,6 +99,8 @@ body {
 .start-stop-btn{
     width: 60px;
     height: 60px;
+    font-variant: small-caps;
+    font-size: 16px;
 }
 
 button {
@@ -125,7 +130,7 @@ button:active {
 }
 .bpm-display{
     position:absolute;
-    top: 2%;
+    top: -9%;
     display: flex;
     flex-direction: column;
     color: white;
@@ -136,8 +141,29 @@ button:active {
     text-align: center;
     padding: 2px;
 }
-.bpm{
+.bpm, .measure-count{
     text-align: center;
+}
+.settings-section {
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    margin-top: 2rem;
+}
+.toggle-settings {
+    border-radius: 15px;
+    width: 50px;
+    height:25px;
+    background-color:  rgb(182, 182, 182);
+}
+.toggle-settings-btn {
+    width: 25px;
+    height: 25px;
+    border: none;
+    transition: ease-in-out .2s;
+}
+.settings-text{
+    padding: 0 10px;
 }
 
 @keyframes pendulum {
