@@ -1,5 +1,6 @@
 body {
     position: relative;
+    background-color: rgb(192, 225, 255);
 }
 
 .container {
@@ -14,7 +15,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 400px;
+    margin-top: 11rem;
 }
 
 .metronome-border {
@@ -22,7 +23,7 @@ body {
     left: 50%;
     transform: translate(-50%);
     margin-top: 5rem;
-    border-bottom: 500px solid #555;
+    border-bottom: 530px solid rgb(91, 47, 21);
     border-left: 110px solid transparent;
     border-right: 110px solid transparent;
     height: 0;
@@ -30,37 +31,121 @@ body {
     z-index: 0;
 }
 
-.tempo-settings {
-    display: flex;
-}
-
-.measures {
-    display: flex;
-}
-
- .tempo-slider {
+.black-board {
     position: absolute;
-    right: 50px;
-    width: 300px;
+    left: 50%;
+    margin-top: 1rem;
+    transform: translate(-50%);
+    border-bottom: 325px solid black;
+    border-left: 66px solid transparent;
+    border-right: 66px solid transparent;
+    height: 0;
+    width: 123px;
+
+}
+
+.tempo-settings, .measures{
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.tempo-slider {
+    all: unset;
+    position: absolute;
+    right: 50%;
+    width: 320px;
+    height: 6px;
+    border-radius: 3px;
+    background-color: rgb(83, 83, 83);
     transform: rotate(90deg);
     transform-origin: right;
-   
-    /* all: unset; */
+    z-index: 99;
 }
-/* .tempo-slider::-webkit-slider-thumb{
+.circle{
+    width: 12px;
+    height: 12px;
+    background-color: rgb(83, 83, 83);;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 45%;
+    
+}
+
+.tempo-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
-}  */
+    width: 40px;
+    height: 0px;
+    transform: rotate(90deg);
+    border-bottom: 40px solid rgb(132, 132, 132);
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+}
+
 .tempo-slider.active {
     --duration: 60000 / 120;
     --angleLeft: 0;
     --angleRight: 0;
-    animation-name: pendulum ;
+    animation-name: pendulum;
     animation-duration: calc(var(--duration) * 1ms);
-    animation-timing-function:  ease-in-out;
+    animation-timing-function: ease-in-out;
     animation-direction: alternate;
     animation-iteration-count: infinite;
 }
+.start-stop-btn{
+    width: 60px;
+    height: 60px;
+}
+
+button {
+    
+    border-radius: 50%;
+    border: 1px solid black;
+    -webkit-box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.82);
+    -moz-box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.82);
+    box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.82);
+    background-color: rgb(164, 68, 12);
+    color: rgb(182, 182, 182);
+}
+
+button:active {
+    transform: translateY(2px);
+    transform: translateX(1px);
+    -webkit-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.82);
+    -moz-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.82);
+    box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.82);
+
+}
+.adjust-tempo.decrease-tempo,  .adjust-tempo.increase-tempo{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+
+}
+.bpm-display{
+    position:absolute;
+    top: 2%;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 3rem;
+    z-index: 1;
+}
+.tempo{
+    text-align: center;
+    padding: 2px;
+}
+.bpm{
+    text-align: center;
+}
+
 @keyframes pendulum {
-    from{transform: rotate(calc(var(--angleLeft) * 1deg))}
-    to {transform: rotate(calc(var(--angleRight) * 1deg))}
+    from {
+        transform: rotate(calc(var(--angleLeft) * 1deg))
+    }
+
+    to {
+        transform: rotate(calc(var(--angleRight) * 1deg))
+    }
 }

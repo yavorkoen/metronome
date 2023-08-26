@@ -14,20 +14,22 @@
             <input class="tempo-slider" type="range" min="40" max="340" value="120" step="1">
             <div class="bpm-display">
                 <span class="tempo">120</span>
-                <span class="bpm">BPM</span>
+                <span class="bpm">bpm</span>
             </div>
-            <div class="tempo-text">nice and steady</div>
+            <div class="circle"></div>
             <div class="tempo-settings">
-                <div class="adjust-tempo decrease-tempo">-</div>
-                <div class="adjust-tempo increase-tempo">+</div>
+                <button accesskey="-" class="adjust-tempo decrease-tempo">-</button>
+                <button class="adjust-tempo increase-tempo">+</button>
             </div>
-            <div class="start-stop-btn">START</div>
+            <button class="start-stop-btn">START</button>
+
             <div class="measures">
                 <div class="adjust-beats decrease-beats">-</div>
                 <div class="measure-count">4</div>
                 <div class="adjust-beats increase-beats">+</div>
+                <div class="measures-text">beats per measure</div>
             </div>
-            <div class="measures-text">beats per measure</div>
+
             <!-- <div class="note-length-settings">
                 <select name="note-length" id="note-length" class="note-length">
                     <option value="quarter">quarter</option>
@@ -39,7 +41,9 @@
             </div> -->
         </div>
     </div>
-    <div class="metronome-border"></div>
+    <div class="metronome-border">
+        <div class="black-board"></div>
+    </div>
     <script src="/app.js" type="module"></script>
 </body>
 
