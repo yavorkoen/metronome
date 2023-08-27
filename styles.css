@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
 body {
+    --background-color: rgb(192, 225, 255);
+    --text-color: rgb(182, 182, 182);
     position: relative;
-    background-color: rgb(192, 225, 255);
+    background-color: var(--background-color);
     font-family: 'Comfortaa', 'sans-serif';
 }
 
@@ -22,16 +24,28 @@ body {
 }
 
 .metronome-border {
+    background-image: url('red-oak.jpeg');
     position: absolute;
     left: 50%;
     transform: translate(-50%);
     margin-top: 5rem;
-    border-bottom: 530px solid rgb(91, 47, 21);
-    border-left: 110px solid transparent;
-    border-right: 110px solid transparent;
-    height: 0;
-    width: 150px;
+    height: 530px;
+    width: 370px;
     z-index: 0;
+}
+.right-border {
+    position: absolute;
+    right: 0px;
+    border-top: 530px solid  var(--background-color);
+    border-left: 110px solid transparent;
+    width: 0px;
+}
+.left-border {
+    position: absolute;
+    left: 0;
+    border-top: 530px solid  var(--background-color);
+    border-right: 110px solid transparent;
+    width: 0px;
 }
 
 .black-board {
@@ -39,12 +53,11 @@ body {
     left: 50%;
     margin-top: 1rem;
     transform: translate(-50%);
-    border-bottom: 325px solid black;
+    border-bottom: 325px solid rgb(19, 0, 0);
     border-left: 66px solid transparent;
     border-right: 66px solid transparent;
     height: 0;
     width: 123px;
-
 }
 
 .tempo-settings, .measures{
@@ -100,18 +113,17 @@ body {
     width: 60px;
     height: 60px;
     font-variant: small-caps;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 button {
-    
     border-radius: 50%;
     border: 1px solid black;
     -webkit-box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.82);
     -moz-box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.82);
     box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.82);
-    background-color: rgb(164, 68, 12);
-    color: rgb(182, 182, 182);
+    background-color: rgb(160, 61, 3);
+    color: var(--text-color);
 }
 
 button:active {
@@ -133,7 +145,7 @@ button:active {
     top: -9%;
     display: flex;
     flex-direction: column;
-    color: white;
+    color: var(--text-color);
     font-size: 3rem;
     z-index: 1;
 }
@@ -164,6 +176,7 @@ button:active {
 }
 .settings-text{
     padding: 0 10px;
+    color: var(--text-color);
 }
 
 @keyframes pendulum {
